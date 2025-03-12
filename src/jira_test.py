@@ -5,6 +5,9 @@ from settings import settings
 def test_jira_connection():
     """Test that we can connect to JIRA and fetch a ticket"""
     # Initialize JIRA client
+    print(f"establishing connection to JIRA_BASE_URL: {settings.JIRA_BASE_URL}")
+    print(f"with JIRA_API_KEY: {settings.JIRA_API_KEY}")
+    
     jira = JIRA(server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY)
     print("JIRA client initialized")
     print(jira)
