@@ -29,22 +29,22 @@ def fetch_issues(start_date: str) -> List[Dict]:
         jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
     )
     print(f"Resut type: {type(result)}")
-    print(f"Result: {result}")
+    print(f"len of result: {len(result)}")
 
     
-    # while True:
-    #     result = jira.search_issues(
-    #         jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
-    #     )
+    while True:
+        result = jira.search_issues(
+            jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
+        )
 
-    #     if not result.issues:
-    #         break
+        if not result:
+            break
 
-    #     issues.extend(result.issues)
-    #     start_at += max_results
+        issues.extend(result)
+        start_at += max_results
 
-    #     if len(result.issues) < max_results:
-    #         break
+        if len(result) < max_results:
+            break
 
     return issues
 
