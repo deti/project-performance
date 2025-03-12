@@ -6,18 +6,25 @@ def test_jira_connection():
     """Test that we can connect to JIRA and fetch a ticket"""
     # Initialize JIRA client
     jira = JIRA(server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY)
+    print("JIRA client initialized")
+    print(jira)
+
 
     # Create test JQL query to get a single issue
     jql = f"project = {settings.JIRA_PROJECT_KEY} ORDER BY created DESC"
-
+    print(f"JQL query: {jql}")
+    
     # Fetch single issue
     issues = jira.search_issues(jql, maxResults=1)
+    print(f"Issues: {issues}")
 
     # Verify we got a result
     assert len(issues) > 0
+    print(f"Number of issues: {len(issues)}")
 
     # Get the first issue
     issue = issues[0]
+    print(f"Got issue: {issue}")
 
     # Verify basic issue fields are accessible
     assert issue.key is not None
