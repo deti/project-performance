@@ -2,3 +2,6 @@ pydantic
 pydantic-settings
 python-dotenv
 ruff
+matplotlib
+pandas
+jira
