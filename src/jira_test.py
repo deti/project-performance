@@ -9,7 +9,7 @@ def test_jira_connection():
     print(f"with JIRA_API_KEY: {settings.JIRA_API_KEY}")
 
     jira = JIRA(
-        server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY, verify=False
+        server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY, options={"verify":False}
     )
     print("JIRA client initialized")
     print(jira)
