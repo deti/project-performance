@@ -25,19 +25,25 @@ def fetch_issues(start_date: str) -> List[Dict]:
 
     jql = f'project = {settings.JIRA_PROJECT_KEY} AND updated >= "{start_date}" ORDER BY updated DESC'
 
-    while True:
-        result = jira.search_issues(
-            jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
-        )
+    result = jira.search_issues(
+        jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
+    )
+    print(f"Result: {result}")
 
-        if not result.issues:
-            break
+    
+    # while True:
+    #     result = jira.search_issues(
+    #         jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
+    #     )
 
-        issues.extend(result.issues)
-        start_at += max_results
+    #     if not result.issues:
+    #         break
 
-        if len(result.issues) < max_results:
-            break
+    #     issues.extend(result.issues)
+    #     start_at += max_results
+
+    #     if len(result.issues) < max_results:
+    #         break
 
     return issues
 
