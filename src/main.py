@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # test_jira_connection()
 
-    start_date = "2025-03-01"
+    start_date = "2025-01-01"
     jira_df = get_jira_metrics(start_date=start_date)
 
     # Export the DataFrame to Excel

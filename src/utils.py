@@ -1,7 +1,8 @@
 from pathlib import Path
 
 
-PARENT_DIR = Path(__file__).parent
+# parent directory of the project
+PARENT_DIR = Path(__file__).parent.parent
 
 
 def make_file_name(start_date: str, name: str) -> str:

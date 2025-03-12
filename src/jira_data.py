@@ -21,8 +21,7 @@ def fetch_issues(start_date: str) -> List[Dict]:
     """
     issues = []
     start_at = 0
-    # max_results = 100
-    max_results = 10
+    max_results = 100
 
     jql = f'project = {settings.JIRA_PROJECT_KEY} AND updated >= "{start_date}" ORDER BY updated DESC'
 
