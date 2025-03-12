@@ -9,7 +9,9 @@ from utils import make_file_name
 
 # Initialize JIRA client
 jira = JIRA(
-    server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY, verify=False
+    server=settings.JIRA_BASE_URL,
+    token_auth=settings.JIRA_API_KEY,
+    options={"verify": False},
 )
 
 
