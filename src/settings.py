@@ -8,7 +8,6 @@ env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(env_path)
 
 
-
 class Settings(BaseSettings):
     # Jira settings
     JIRA_API_KEY: str = "your_jira_api_key"
