@@ -28,6 +28,7 @@ def fetch_issues(start_date: str) -> List[Dict]:
     result = jira.search_issues(
         jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
     )
+    print(f"Resut type: {type(result)}")
     print(f"Result: {result}")
 
     
