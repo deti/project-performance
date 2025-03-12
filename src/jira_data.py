@@ -14,6 +14,9 @@ jira = JIRA(
     options={"verify": False},
 )
 
+# set plot available style
+plt.style.use("seaborn-v0_8-whitegrid")
+
 
 def fetch_issues(start_date: str) -> List[Dict]:
     """
@@ -31,7 +34,6 @@ def fetch_issues(start_date: str) -> List[Dict]:
     print(f"Resut type: {type(result)}")
     print(f"len of result: {len(result)}")
 
-    
     while True:
         result = jira.search_issues(
             jql, startAt=start_at, maxResults=max_results, expand=["changelog"]
