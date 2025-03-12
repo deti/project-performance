@@ -8,7 +8,9 @@ from settings import settings
 from utils import make_file_name
 
 # Initialize JIRA client
-jira = JIRA(server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY)
+jira = JIRA(
+    server=settings.JIRA_BASE_URL, token_auth=settings.JIRA_API_KEY, verify=False
+)
 
 
 def fetch_issues(start_date: str) -> List[Dict]:
