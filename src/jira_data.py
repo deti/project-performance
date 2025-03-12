@@ -14,9 +14,6 @@ jira = JIRA(
     options={"verify": False},
 )
 
-# set plot available style
-plt.style.use("seaborn-v0_8-whitegrid")
-
 
 def fetch_issues(start_date: str) -> List[Dict]:
     """
@@ -24,7 +21,8 @@ def fetch_issues(start_date: str) -> List[Dict]:
     """
     issues = []
     start_at = 0
-    max_results = 100
+    # max_results = 100
+    max_results = 10
 
     jql = f'project = {settings.JIRA_PROJECT_KEY} AND updated >= "{start_date}" ORDER BY updated DESC'
 
@@ -109,7 +107,7 @@ def visualize_metrics(df: pd.DataFrame, start_date: str):
     Create visualizations for the metrics
     """
     # Set up the plotting style
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-v0_8-whitegrid")
 
     # 1. Cycle Time Distribution
     plt.figure(figsize=(10, 6))
