@@ -6,3 +6,4 @@ matplotlib
 pandas
 jira
 openpyxl
+atlassian-python-api

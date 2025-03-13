@@ -7,13 +7,6 @@ from jira import JIRA
 from settings import settings
 from utils import make_file_name
 
-# Initialize JIRA client
-jira = JIRA(
-    server=settings.JIRA_BASE_URL,
-    token_auth=settings.JIRA_API_KEY,
-    options={"verify": False},
-)
-
 
 def fetch_issues(start_date: str) -> List[Dict]:
     """
@@ -22,6 +15,13 @@ def fetch_issues(start_date: str) -> List[Dict]:
     issues = []
     start_at = 0
     max_results = 100
+
+    # Initialize JIRA client
+    jira = JIRA(
+        server=settings.JIRA_BASE_URL,
+        token_auth=settings.JIRA_API_KEY,
+        options={"verify": False},
+    )
 
     jql = f'project = {settings.JIRA_PROJECT_KEY} AND updated >= "{start_date}" ORDER BY updated DESC'
 
